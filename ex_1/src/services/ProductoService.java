@@ -80,34 +80,31 @@ public class ProductoService {
         Producto producto = buscarProducto(input.next());
 
         if (producto != null) {
-            do{
-                System.out.println("Elija el campo que desea modificar:");
-                System.out.println("1- Nombre");
-                System.out.println("2- Precio");
-                System.out.println("3- Fabricante");
-                System.out.println("Opcion: ");
-                op = input.nextInt();
 
-                switch (op) {
-                    case 1:
-                        System.out.println("Ingrese el nuevo nombre del producto:");
-                        producto.setNombre(input.next());
-                        break;
-                    case 2:
-                        System.out.println("Ingrese el nuevo precio:");
-                        producto.setPrecio(input.nextDouble());
-                        break;
-                    case 3:
-                        fabricante = obtenerFabricante();
-                        producto.setCodigo_fabricante(fabricante);
-                        break;
-                    default:
-                        System.out.println("Elija una opcion correcta");
-                        break;
-                }
+            System.out.println("Elija el campo que desea modificar:");
+            System.out.println("1- Nombre");
+            System.out.println("2- Precio");
+            System.out.println("3- Fabricante");
+            System.out.println("Opcion: ");
+            op = input.nextInt();
 
-            }while(op <= 3);
-
+            switch (op) {
+                case 1:
+                    System.out.println("Ingrese el nuevo nombre del producto:");
+                    producto.setNombre(input.next());
+                    break;
+                case 2:
+                    System.out.println("Ingrese el nuevo precio:");
+                    producto.setPrecio(input.nextDouble());
+                    break;
+                case 3:
+                    fabricante = obtenerFabricante();
+                    producto.setCodigo_fabricante(fabricante);
+                    break;
+                default:
+                    System.out.println("Elija una opcion correcta");
+                    break;
+            }
             daoProducto.modificarProducto(producto);
             System.out.println("Producto modificado!");
         }else{

@@ -28,7 +28,7 @@ public class DaoProducto extends DaoConexion{
             if(producto == null){
                 throw new Exception("Objeto no cargado");
             }
-            String sql = String.format("UPDATE Producto SET nombre=%s, precio=%f, codigo_fabricante=%d " +
+            String sql = String.format("UPDATE Producto SET nombre=\'%s\', precio=%f, codigo_fabricante=%d " +
                     "WHERE codigo=%d;", producto.getNombre(), producto.getPrecio(), producto.getCodigo_fabricante().getCodigo(), producto.getCodigo());
 
             insertModifyDelete(sql);
